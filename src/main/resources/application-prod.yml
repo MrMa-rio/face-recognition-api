@@ -1,0 +1,24 @@
+server:
+  port: ${SERVER_PORT:8082}
+
+spring:
+  application:
+    name: face-recognition-api
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:eureka-server}:${EUREKA_SERVER_PORT:8761}/eureka/
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+
+logging:
+  level:
+    com.eureka.face: INFO
+    org.springframework: WARN
+    org.springframework.cloud.openfeign: INFO
+  file:
+    name: /var/log/eureka/face-recognition-api.log
+    max-size: 100MB
+    max-history: 30
