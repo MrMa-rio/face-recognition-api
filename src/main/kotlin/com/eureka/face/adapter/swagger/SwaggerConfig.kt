@@ -13,9 +13,24 @@ class SwaggerConfig {
     
     @Value("\${server.port:8080}")
     private val serverPort: String = "8080"
+
+    @Value("\${EUREKA_HOST:localhost}")
+    private val eurekaHost: String = "localhost"
+
+    @Value("\${SWAGGER_SERVER_URL:}")
+    private val swaggerServerUrl: String = ""
     
     @Bean
     fun customOpenAPI(): OpenAPI {
+        val servers = mutableListOf<Server>()
+
+        if (swaggerServerUrl.isNotBlank()) {
+            servers.add(Server().url(swaggerServerUrl).description("Server URL"))
+        }
+
+        servers.add(Server().url("http://$eurekaHost:$serverPort").description("Internal Server"))
+        servers.add(Server().url("http://localhost:$serverPort").description("Local Server"))
+
         return OpenAPI()
             .info(
                 Info()
@@ -28,15 +43,6 @@ class SwaggerConfig {
                             .email("team@eureka.com")
                     )
             )
-            .servers(
-                listOf(
-                    Server()
-                        .url("http://localhost:$serverPort")
-                        .description("Local Server"),
-                    Server()
-                        .url("http://localhost:8080")
-                        .description("Gateway Server")
-                )
-            )
+            .servers(servers)
     }
 }

@@ -45,7 +45,7 @@ tasks.withType<Test> {
 }
 
 kotlin {
-    jvmToolchain(24)
+    jvmToolchain(21)
 }
 
 springBoot {
