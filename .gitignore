@@ -26,4 +26,3 @@ application-local.yml
 logs/
 target/
 out/
-models/

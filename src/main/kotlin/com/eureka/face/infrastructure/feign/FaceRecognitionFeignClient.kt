@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 @FeignClient(
     name = "face-recognition-api",
-    url = "\${feign.client.face-recognition-api.url:http://localhost:8082}",
     configuration = [FeignClientConfig::class]
 )
 interface FaceRecognitionFeignClient {

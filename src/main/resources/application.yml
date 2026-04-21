@@ -30,11 +30,13 @@ logging:
     org.springframework.cloud.netflix.eureka: INFO
     org.bytedeco: WARN
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%groupId] %logger{36} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  logback:
+    rollingpolicy:
+      max-size: 100MB
+      max-history: 30
   file:
     name: logs/face-recognition-api.log
-    max-size: 100MB
-    max-history: 30
 
 management:
   endpoints:
@@ -47,7 +49,7 @@ management:
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui.html
+    path: /
     enabled: true
   api-docs:
     path: /v3/api-docs
