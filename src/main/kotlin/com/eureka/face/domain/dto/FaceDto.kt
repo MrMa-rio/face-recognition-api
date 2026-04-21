@@ -1,8 +1,11 @@
 package com.eureka.face.domain.dto
 
+import com.eureka.face.domain.model.LivenessResult
+
 data class FaceCompareRequest(
     val sourceImage: String,
-    val targetImage: String
+    val targetImage: String,
+    val detectSpoofing: Boolean? = false
 )
 
 data class FaceCompareResponse(
@@ -10,6 +13,8 @@ data class FaceCompareResponse(
     val confidence: Double,
     val sourceFaceDetected: Boolean,
     val targetFaceDetected: Boolean,
+    val sourceSpoofing: LivenessResult? = null,
+    val targetSpoofing: LivenessResult? = null,
     val message: String
 )
 

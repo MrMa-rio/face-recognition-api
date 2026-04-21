@@ -2,8 +2,8 @@
 <configuration>
     <property name="LOG_PATH" value="logs"/>
     <property name="LOG_FILE" value="face-recognition-api"/>
-    <property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%groupId] %logger{36} - %msg%n"/>
-    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%groupId] %logger{36} - %msg%n"/>
+    <property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
     
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>

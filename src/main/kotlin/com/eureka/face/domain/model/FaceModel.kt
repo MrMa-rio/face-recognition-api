@@ -30,5 +30,14 @@ data class FaceMatchResult(
     val isMatch: Boolean,
     val confidence: Double,
     val sourceFaceDetected: Boolean,
-    val targetFaceDetected: Boolean
+    val targetFaceDetected: Boolean,
+    val sourceSpoofing: LivenessResult? = null,
+    val targetSpoofing: LivenessResult? = null
+)
+
+data class LivenessResult(
+    val isReal: Boolean,
+    val score: Double,
+    val details: Map<String, Any>,
+    val message: String
 )
